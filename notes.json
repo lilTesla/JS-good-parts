@@ -1,0 +1,34 @@
+{
+  "chapters": {
+    "OBJECTS": {
+      "info": "1. As we know, every object has a prototype. Testing in Chrome I detected that this prototype is called \"__proto__\" and is\ndifferent from functions \"prototype\".\n2. Every object's \"__proto__\", instead of functions is pure Object.prototype."
+    },
+    "FUNCTIONS": {
+      "info": "1. Functions \"__proto__\" is a Function.prototype.\n2. Every function has a \"__proto__\" as it functions are objects in js, but in addition it has:\n        property named \"prototype\", which is an object having one \"constructor\" property, which has the function as it's value.\n        hidden property defined as \"[[FunctionLocation]]\" in chrome debugger, which points to the script with the function and to the line of code in it.\n        hidden property defined as \"[[Scopes]]\" in chrome debugger, which is an array of function contexts with closings and some other things I am unfamiliar with yet.",
+      "subsections": {
+        "invocation_patterns": {
+          "method_invocation": "1. \"Method\" is a function stored as a property in some object.\n    2. Methods that get their object context from this are called \"public methods\".\n    3. Anytime method is invoked, it's \"this\" is bound to containing object.",
+          "function_invocation": "1. When function is not a part of an object, it invokes as a \"function\".\n    2. In this case, \"this\" is bound to the global object, which is language design mistake, as inner function doesn't capture outer's \"this\".\n    3. The workaround is assigning \"this\" to any variable (\"that\", \"self\" for example) in the OUTER function and use this variable in the INNER function.",
+          "constructor_invocation": "1. The syntax is inspired by CLASSical programming and can be confusing, as JS has only prototypal inheritance.\n    2. Function that is made to be called with \"new\" keyword is called \"constructor\".\n    3. Constructor's name should start with a capital letter (it is a very important convention).\n    4. When any function is being invoked with the \"new\" keyword, it creates a new object with hidden link to the value of it's \"prototype\" property.\n    Inside of the function, \"this\" keyword is bound to this newly created object.\n    5. The behaviour of return statement changes if function has been invoked with the \"new\" prefix.\n    In that case it returns \"this\" (the new object), OR THE OBJECT, if it was returned in a function.",
+          "apply_invocation": "1. An \"apply\" is a method that every function has in JS.\n    2. \"Apply\" takes two parameters:\n        the first one specifies \"this\" keyword for the function on which \"apply\" is invoked.\n        the second one is an array of arguments that will be passed to this function.\n    3. Using \"apply\" we can also call a method of the object A on the object B, even if B doesn't inherit from A. Of course, to work correctly object B\n    should have an analogue for all A's properties needed in the method."
+        }
+      }
+    }
+  },
+  "mistakes": {
+    "FUNCTIONS": [
+      {
+        "explanation": "Closing works not only in functions as is said, but in objects too. See \"closure.js\".",
+        "page": 27,
+        "subsection": "Function Literal",
+        "location_details": "the last indent"
+      },
+      {
+        "explanation": "In code example's comments It is said that function sees only the inner one variable,\n    but it is happening only because it has the same name as outer one. In general, it encloses the outer variable.",
+        "page": 31,
+        "subsection": "Arguments",
+        "location_details": "code example's comments"
+      }
+    ]
+  }
+}

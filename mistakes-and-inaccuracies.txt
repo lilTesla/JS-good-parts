@@ -1,0 +1,7 @@
+IF SOME KIND OF MISUNDERSTANDING HAPPENS, THIS IS FIRST PLACE TO LOOK FOR EXPLANATIONS
+MISTAKES ARE SORTED BY CHAPTERS
+
+FUNCTIONS
+    1. Closing works not only in functions as is said in the beginning of the chapter, but in objects too. See "closure.js".
+    2. Another mistake, in the "Arguments" section. In code example's comments it is said that function sees only the inner one variable,
+    but it is happening only because it has the same name as outer one. In general, it encloses the outer variable.

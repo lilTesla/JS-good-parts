@@ -10,10 +10,7 @@ FUNCTIONS
         hidden property defined as "[[FunctionLocation]]" in chrome debugger, which points to the script with the function and to the line of code in it.
         hidden property defined as "[[Scopes]]" in chrome debugger, which is an array of function contexts with closings and some other things I am unfamiliar with yet.
 
-CLOSING
-1. Closing works not only in functions as is said in the beginning of "Functions" chapter, but in objects too. See "closure.js".
-
-INVOCATION PATTERNS
+FUNCTIONS.INVOCATION_PATTERNS
 
     Method Invocation
     1. "Method" is a function stored as a property in some object.
@@ -32,6 +29,7 @@ INVOCATION PATTERNS
     4. When any function is being invoked with the "new" keyword, it creates a new object with hidden link to the value of it's "prototype" property.
     Inside of the function, "this" keyword is bound to this newly created object.
     5. The behaviour of return statement changes if function has been invoked with the "new" prefix.
+!!! In that case it returns "this" (the new object), OR THE OBJECT, if it was returned in a function.
 
 !!! Apply Invocation
     1. An "apply" is a method that every function has in JS.
