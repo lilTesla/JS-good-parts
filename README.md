@@ -1,2 +1,2 @@
 # JS-good-parts
-Repo to test examples from book by Douglas Crockford
+Repo for making notes and testing examples from the self-titled book by Douglas Crockford
