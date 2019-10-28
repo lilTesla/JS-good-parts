@@ -1,0 +1,52 @@
+OBJECTS
+1. As we know, every object has a prototype. Testing in Chrome I detected that this prototype is called "__proto__" and is
+different from functions "prototype".
+2. Every object's "__proto__", instead of functions is pure Object.prototype.
+
+FUNCTIONS
+1. Functions "__proto__" is a Function.prototype.
+2. Every function has a "__proto__" as it functions are objects in js, but in addition it has:
+        property named "prototype", which is an object having one "constructor" property, which has the function as it's value.
+        hidden property defined as "[[FunctionLocation]]" in chrome debugger, which points to the script with the function and to the line of code in it.
+        hidden property defined as "[[Scopes]]" in chrome debugger, which is an array of function contexts with closings and some other things I am unfamiliar with yet.
+
+CLOSING
+1. Closing works not only in functions as is said in the beginning of "Functions" chapter, but in objects too. See "closure.js".
+
+INVOCATION PATTERNS
+
+    Method Invocation
+    1. "Method" is a function stored as a property in some object.
+    2. Methods that get their object context from this are called "public methods".
+    3. Anytime method is invoked, it's "this" is bound to containing object.
+
+    Function Invocation
+    1. When function is not a part of an object, it invokes as a "function".
+    2. In this case, "this" is bound to the global object, which is language design mistake, as inner function doesn't capture outer's "this".
+    3. The workaround is assigning "this" to any variable ("that", "self" for example) in the OUTER function and use this variable in the INNER function.
+
+!!! Constructor Invocation
+    1. The syntax is inspired by CLASSical programming and can be confusing, as JS has only prototypal inheritance.
+    2. Function that is made to be called with "new" keyword is called "constructor".
+    3. Constructor's name should start with a capital letter (it is a very important convention).
+    4. When any function is being invoked with the "new" keyword, it creates a new object with hidden link to the value of it's "prototype" property.
+    Inside of the function, "this" keyword is bound to this newly created object.
+    5. The behaviour of return statement changes if function has been invoked with the "new" prefix.
+
+!!! Apply Invocation
+    1. An "apply" is a method that every function has in JS.
+    2. "Apply" takes two parameters:
+!!!     the first one specifies "this" keyword for the function on which "apply" is invoked.
+        the second one is an array of arguments that will be passed to this function.
+    3. Using "apply" we can also call a method of the object A on the object B, even if B doesn't inherit from A. Of course, to work correctly object B
+    should have an analogue for all A's properties needed in the method.
+
+
+
+
+
+
+
+
+
+

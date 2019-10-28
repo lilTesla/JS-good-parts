@@ -1,4 +1,3 @@
-document.writeln('Hello, world!');
 let empty_object = {};
 let stooge = {
     "first-name": "Jerome",
@@ -44,3 +43,7 @@ Car.prototype = new Vehicle();
 let f = function(){this.a = 5;}
 
 let car = new Car("cab", 4, 250);
+
+document.getElementById("btn").onclick = function () {
+    alert($m.add(1,2));
+};
