@@ -39,7 +39,15 @@ FUNCTIONS.INVOCATION_PATTERNS
     3. Using "apply" we can also call a method of the object A on the object B, even if B doesn't inherit from A. Of course, to work correctly object B
     should have an analogue for all A's properties needed in the method.
 
-
+FUNCTIONS.RECURSION
+    1. If you feel like the problem could be solved by recursion, but it is hard to write the algorithm, try to assume that your function already does what it should.
+    Then find the largest subproblem and solve it using this assuming (by making a recursive calls). I think it is the same as GREEDY ALGORITHMS' principle.
+    This thought had come to me after looking at Hanoi Towers code example.
+    2. "Tail recursion optimization" is optimization for recursion functions that return the result of it's recursive call (function f(){...return f()}.
+    It exists in some languages and works by replacing invocation with a loop. JS doesn't have tail recursion optimization!
+FUNCTIONS.SCOPE
+    1. JS doesn't support block scoping, so variables are scoped in functions only. Hence it is a good practice in JS to declare
+    all the variables in the beginning of a function.
 
 
 
